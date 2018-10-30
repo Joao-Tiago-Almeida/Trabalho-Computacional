@@ -16,3 +16,8 @@ git stash
 https://www.git-tower.com/blog/git-cheat-sheet
 
 https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+
+//add a specific branch
+git clone <url> --branch <branch> --single-branch
+
+!! quando escrevemos no read me, escrevemos online, na branch master
