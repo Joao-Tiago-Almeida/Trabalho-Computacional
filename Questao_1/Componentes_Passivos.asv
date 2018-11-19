@@ -28,11 +28,11 @@ L = d * auxL;
 R = d * auxR;
 C = d * auxC;
 
-%--------------
+%---------------------------Exercício 1----------------------------------
 
-%   alínea a do 
-ex1a( G, L, R, C );
+%   alínea A
+%   ex1a( G, L, R, C );
 
-%   alínea b do Exercício 1
-ex1a( G, L, R, C );
+%   alínea B
+   ex1b(L, C);
 

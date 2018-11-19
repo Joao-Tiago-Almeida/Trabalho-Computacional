@@ -12,14 +12,20 @@ r_til = linspace(r_exato - 10, r_exato - 1, 100);
 %   imagem de r_til
 f_r_til = var(r_til, L, C);
 
-%   erro da f_r_til, raltivamente a f_r_exato
-erro = 100 * abs(f_r_exato - f_r_til) / f_r_exato;
+%   erro de f_r_til, relativamente a f_r_exato
+erro_f = 100 * abs(f_r_exato - f_r_til) / f_r_exato;
 
-%   Desenho do gráfico
-plot( r_til, erro)
+%   erro de r_til, raltivamente a r_exato
+erro_r = 100 * abs(f_r_exato - r_til) / r_exato;
+
+%   Desenho do gráfico do erro relativo de r_til e f_r_til
+plot( r_til, erro_r,  r_til, erro_f )
 
 %   Legendas dos eixos do gráfico
 xlabel("aprox_r"), ylabel("erro");
+
+%   Comentário
+fprintf("À medida que r_til cresce para r_exato ( função azul ) , o erro relativo em %% ( função vermelha ) decresce para 0, pois a distância entre r_til e r_exato tende a anular-se");
 
 end
 
