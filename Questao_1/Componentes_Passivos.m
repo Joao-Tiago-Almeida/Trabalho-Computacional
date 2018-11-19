@@ -34,5 +34,5 @@ C = d * auxC;
 %   ex1a( G, L, R, C );
 
 %   alínea B
-   ex1b(L, C);
+%   ex1b(L, C);
 
