@@ -1,8 +1,12 @@
 # Trabalho-Computacional
 
+
+!! quando escrevemos no read me, escrevemos online, na branch master
+
 git clone https://github.com/Umelhor99/Trabalho-Computacional.git
 
 //c´digos mais úteis
+
 git merge <branch>
 git push
 git pull
@@ -18,6 +22,7 @@ https://www.git-tower.com/blog/git-cheat-sheet
 https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
 
 //add a specific branch
-git clone <url> --branch <branch> --single-branch
+-->> git checkout <branch>
 
-!! quando escrevemos no read me, escrevemos online, na branch master
+
+
