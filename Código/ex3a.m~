@@ -1,0 +1,35 @@
+function ex3a(Q, t) 
+
+%derivada da função Q em orem ao tempo (not sure)
+dq = gradient(Q);
+
+%matriz 2*100
+T = [t; dq];
+
+%Gerar figura
+f = figure;
+
+%Atribuição a variáveis as estruturas da figura e da janela
+u = f.Units;
+uit = uitable(f);
+
+%Copia do resulatdo para a tabela
+uit.Data = T;
+
+%Identificação das linhas
+uit.RowName = {'t', 'dq'};
+
+%uit.Position  -- xx, yy, lenght, height
+%set -- %% parte direita, %% parte superior, %% de comprimento do ecrã, %% de altura do ecrãn
+
+% ll. (26 - 27), tamanho ideal para Mac 13''
+%uit.Position = [0, 0, 1450, 70];
+%set(gcf, 'Units', 'Normalized', 'OuterPosition', [00, 0.5, 1, .16]);
+
+%ll. (30 - 31), tamanho generalizado
+uit.Position = [10, 20, 10, 70];
+set(gcf, 'Units', 'Normalized', 'OuterPosition', [0.1, 0.5, .8, .16]);
+
+
+end
+

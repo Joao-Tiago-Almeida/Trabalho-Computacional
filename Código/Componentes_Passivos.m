@@ -1,23 +1,23 @@
-%   variáveis constantes, números mecanográficos dos alunos
+%   variaveis constantes, nï¿½meros mecanogrï¿½ficos dos alunos
 Rodrigo = 190185;
 Rafael = 190171;
 Joao = 190119;
 Vasco = 190205;
 
-%   número do grupo
+%   numero do grupo
 G = 4;
 
-%   soma dos números mecanográficos dos alunos
+%   soma dos numeros mecanograficos dos alunos
 s = Rodrigo + Rafael + Joao + Vasco;
 
-%   Função que transfroma um número numa string
+%   Funï¿½ï¿½o que transfroma um numero numa string
 d = num2str(s);
 
-%   matriz linha com o número 'd'
+%   matriz linha com o numero 'd'
 s = [str2double(d(1)), str2double(d(2)), str2double(d(3)), str2double(d(4)), str2double(d(5)), str2double(d(6))];
 d = s;
 
-%   matrizes auxiliares para cálculos defenidos no enunciado
+%   matrizes auxiliares para calculos defenidos no enunciado
 auxL = [1; 0; 0; 0; 10^-1; 10^-2];
 auxR = [10; 0; 0; 1; 10^-1; 0];
 auxC = [10^-4; 10^-4; 10^-5; 0; 0; 0];
@@ -28,11 +28,20 @@ L = d * auxL;
 R = d * auxR;
 C = d * auxC;
 
-%---------------------------Exercício 1----------------------------------
+%   Divide o intervalo [0,1] em 100 pontos
+t = linspace(0, 1, 100);
 
-%   alínea A
-%   ex1a( G, L, R, C );
+%   Funcao da Carga em funcao do tempo 
+Q = G * exp(-R/(2 * L) * t) .* cos(t * sqrt(1/(L * C) - (R/(2 * L))^2));
 
-%   alínea B
-%   ex1b(L, C);
+%---------------------------Exercicio 1----------------------------------
+
+%  alÃ­nea A
+   ex1a(Q, t);
+
+%  alÃ­nea B
+   ex1b(L, C);
+   
+%  alÃ­nea C
+   ex3a(Q, t);
 

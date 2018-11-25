@@ -23,8 +23,8 @@ figure(2)
 plot( r_til, erro_r,  r_til, erro_f )
 
 %   Defenição da posição da janela no ecrã
-%   set -- (dec) parte direita, (dec) parte inferior, (dec) comprimento do ecrã, (dec) altura do ecrã
-set(gcf, 'Units', 'Normalized', 'OuterPosition', [0.5, 0.6, 0.5, 0.4]);
+%   set -- (dec) parte direita, (dec)parte inferior, de comprimento do ecrã, %% de altura do ecrãn
+set(gcf, 'Units', 'Normalized', 'OuterPosition', [0.5, 0.9, 0.5, 0.4]);
 
 %   Legendas dos eixos do grafico
 xlabel("aprox_r"), ylabel("erro");
