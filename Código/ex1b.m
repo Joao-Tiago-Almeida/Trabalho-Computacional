@@ -33,7 +33,7 @@ xlabel("aprox_r"), ylabel("erro");
 title("\fontsize{16} {\color{red}Gráfico alínea 1b)}");
 
 %   Comentario
-fprintf("À medida que r_til cresce para r_exato ( função azul ) , o erro relativo em %% ( função vermelha ) decresce para 0, pois a distância entre r_til e r_exato tende a anular-se \n");
+fprintf("1b) Comentário: \n À medida que r_til cresce para r_exato ( função azul ) , o erro relativo em %% ( função vermelha ) decresce para 0, pois a distância entre r_til e r_exato tende a anular-se \n\n");
 
 end
 

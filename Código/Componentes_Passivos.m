@@ -43,5 +43,5 @@ Q = G * exp(-R/(2 * L) * t) .* cos(t * sqrt(1/(L * C) - (R/(2 * L))^2));
    ex1b(L, C);
    
 %  alínea C
-   ex3a(Q, t);
-
+   ex3a(Q, t, L, R, C);
+   
