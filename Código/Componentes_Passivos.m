@@ -29,7 +29,7 @@ R = d * auxR;
 C = d * auxC;
 
 %   Divide o intervalo [0,1] em 100 pontos
-t = linspace(0, 1, 100);
+t = linspace(0, 1, 101);
 
 %   Funcao da Carga em funcao do tempo 
 Q = G * exp(-R/(2 * L) * t) .* cos(t * sqrt(1/(L * C) - (R/(2 * L))^2));
@@ -40,8 +40,8 @@ Q = G * exp(-R/(2 * L) * t) .* cos(t * sqrt(1/(L * C) - (R/(2 * L))^2));
 %    ex1a(Q, t);
 
 %  alínea B
-   ex1b(L, C);
+%    ex1b(L, C);
    
 %  alínea C
-%    ex3a(Q, t, L, R, C);
+    ex3a(Q, t, L, R, C);
    
