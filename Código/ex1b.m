@@ -1,7 +1,7 @@
 function ex1b(L, C)
 
 %   constante fornecida no enuciado
-r_exato = sqrt((L - C) / C);
+r_exato = 2 * sqrt((L - C) / C);
 
 %   imagem r_exato
 f_r_exato = var(r_exato, L, C);
@@ -16,11 +16,11 @@ f_r_til = var(r_til, L, C);
 erro_f = 100 * abs(f_r_exato - f_r_til) / f_r_exato;
 
 %   erro de r_til, raltivamente a r_exato
-erro_r = 100 * abs(f_r_exato - r_til) / r_exato;
+erro_r = 100 * abs(r_exato - r_til) / r_exato;
 
 %   Desenho do grafico do erro relativo de r_til e f_r_til
-figure(2)
-plot( r_til, erro_r,  r_til, erro_f )
+figure(2);
+plot( r_til, erro_r,  r_til, erro_f );
 
 %   Defenição da posição da janela no ecrã
 %   set -- (dec) parte direita, (dec) parte inferior, (dec) comprimento do ecrã, (dec) altura do ecrã
