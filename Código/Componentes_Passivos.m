@@ -36,12 +36,23 @@ Q = G * exp(-R/(2 * L) * t) .* cos(t * sqrt(1/(L * C) - (R/(2 * L))^2));
 
 %---------------------------Exercicio 1----------------------------------
 
-%  alínea A
+%  alínea 1.a
 %    ex1a(Q, t);
 
-%  alínea B
+%  alínea 1.b
 %    ex1b(L, C);
+
+%  alínea 3.a
+   [K, J, I] = ex3a(Q, t, L, R, C);
    
-%  alínea C
-    ex3a(Q, t, L, R, C);
+%gerar_figura(4, t, J, 0, 0, 0.5, 0.4, "J(t)" );
+%gerar_figura(5, t, J-I, 0.5, 0, 0.5, 0.4, "J(t) - i(t)" );
+   
+%  alínea 3.b
+   [Qs, Qt] = ex3b(G, R, L, C, K, t);
+   
+ %gerar_figura (6, t, Qt, 0.2, 0.55, 0.25, 0.25, "Qt(tk)");
+ %gerar_figura (7, t, Qs, 0.55, 0.55, 0.25, 0.25, "Qs(tk)");
+ %gerar_figura (8, t, Qs - Qt, 0.2, 0.25, 0.25, 0.25, "[Qs - Qt](tk)");
+ gerar_figura (9, t, (abs(Qt - Qs) ./ Qs ) .* 100, 0.1, 0.1, 0.8, 0.8, "[|Qt - Qs|](tk)");
    

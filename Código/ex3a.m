@@ -1,13 +1,14 @@
-function ex3a(Q, t, L, R, C) 
+function [a, b, c] = ex3a(Q, t, L, R, C) 
 
 %   Derivada da função Q em orem ao tempo (not sure)
 dq = gradient(Q);
+
 
 %   Matriz 2*100
 T = [t; dq];
 
 %   função gerar tabela
- gerar_tabela(T);
+ %gerar_tabela(T);
 
 %   Arredondamento de M às unidades
 temp = var(R, L, C);
@@ -27,12 +28,14 @@ K1 = Z(2);
 %       tempo
 J = (K0 .* cos(M * t) + K1 .* sin(M * t)) .* exp(-P * t); 
 
-gerar_figura(4, t, J, 0, "J(t)" );
-gerar_figura(5, t, J-dq, 0.5, "J(t) - i(t)" );
+
 
 %   Comentario
 %fprintf("3a) Comentário: \n Visto que J(t) é uma aproximação da função i(t), a subtração entre ambas tende a anular-se \n\n");
 
+a = [K0, K1, M, P];
+b = J;
+c = dq;
 end
 
 function y = var(x, L, C)
@@ -42,28 +45,6 @@ function y = var(x, L, C)
 
 end
 
-function gerar_figura(num_fig, x, y,dist_x, string )
-
-%   Desenho do grafico do erro relativo de r_til e f_r_til
-figure(num_fig)
-plot( x, y )
-
-%   Defenição da posição da janela no ecrã
-%   set -- (dec) parte direita, (dec) parte inferior, (dec) comprimento do ecrã, (dec) altura do ecrã
-set(gcf, 'Units', 'Normalized', 'OuterPosition', [dist_x, 0, 0.50, 0.40]);
-
-%   Legendas dos eixos do grafico
-xlabel("Tempo [s]"), ylabel(string);
-
-%   Tamanho do título
-ax = gca;
-ax.FontSize = 16;
-
-%   Título do gráfico
-str = sprintf('Gráfico %d  alínea 3a)', num_fig - 3 );
-title(str);
-
-end
 
 function gerar_tabela(T)
 
