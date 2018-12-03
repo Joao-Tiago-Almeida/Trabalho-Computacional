@@ -1,4 +1,4 @@
-function [a, b, c] = ex3a(Q, t, L, R, C) 
+function [a, b, c, T] = ex3a(Q, t, L, R, C) 
 
 %   Derivada da função Q em orem ao tempo (not sure)
 dq = gradient(Q);
@@ -6,9 +6,6 @@ dq = gradient(Q);
 
 %   Matriz 2*100
 T = [t; dq];
-
-%   função gerar tabela
- %gerar_tabela(T);
 
 %   Arredondamento de M às unidades
 temp = var(R, L, C);
@@ -45,34 +42,6 @@ function y = var(x, L, C)
 
 end
 
-
-function gerar_tabela(T)
-
-%   Gerar figura
-f = figure(3);
-
-%   Atribuição a variáveis as estruturas da figur
-uit = uitable(f);
-
-%   Identificação das linhas
-uit.RowName = {'t', 'dq'};
-% uit.column = {
-
-%   Copia do resulatdo para a tabela
-uit.Data = T;
-
-%   Defenição da posição da janela no ecrã
-%   uit.Position  -- xx, yy, lenght, height
-%   set -- (dec) parte direita, (dec) parte inferior, (dec) de comprimento do ecrã, (dec) de altura do ecrã
-
-uit.Position = [0, 0, 1450, 70];
-set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0.4, 1, .18]);
-
-%   Título do gráfico
-title("\fontsize{16} {\color{magenta}Tabela pergunta 3)}");
-
-
-end
 
 function y = get_minimo_quadrado(M, P, i)
 

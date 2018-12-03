@@ -1,4 +1,4 @@
-function ex1b(L, C)
+function [r_til, erro_r,  f_r_til, erro_f] = ex1b(L, C)
 
 %   constante fornecida no enuciado
 r_exato = 2 * sqrt((L - C) / C);
@@ -17,20 +17,6 @@ erro_f = 100 * abs(f_r_exato - f_r_til) / f_r_exato;
 
 %   erro de r_til, raltivamente a r_exato
 erro_r = 100 * abs(r_exato - r_til) / r_exato;
-
-%   Desenho do grafico do erro relativo de r_til e f_r_til
-figure(2);
-plot( r_til, erro_r,  f_r_til, erro_f );
-
-%   Defenição da posição da janela no ecrã
-%   set -- (dec) parte direita, (dec) parte inferior, (dec) comprimento do ecrã, (dec) altura do ecrã
-set(gcf, 'Units', 'Normalized', 'OuterPosition', [0.5, 0.6, 0.5, 0.4]);
-
-%   Legendas dos eixos do grafico
-xlabel("aprox_r"), ylabel("erro");
-
-%   Título do gráfico
-title("\fontsize{16} {\color{red}Gráfico alínea 1b)}");
 
 %   Comentario
 fprintf("1b) Comentário: \n TODO to be done \n\n");
