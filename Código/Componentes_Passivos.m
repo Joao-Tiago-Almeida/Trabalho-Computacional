@@ -37,15 +37,20 @@ Q = G * exp(-R/(2 * L) * t) .* cos(t * sqrt(1/(L * C) - (R/(2 * L))^2));
 %---------------------------Exercicio 1----------------------------------
 
 %  alínea 1.a
-    gerar_figura(1, t, Q, 0, .6, 0.5, 0.4, "Tempo [s]", "Carga [C]", 1, "a");
+    %gerar_figura(1, t, Q, 0, .6, 0.5, 0.4, "Tempo [s]", "Carga [C]", 1, "a");
 
 %  alínea 1.b
-    [a, b, c, d] = ex1b(L, C);
-    gerar_figura(2, a, b, 0.5, 0.6, 0.5, 0.4, "aprox_r", "erro", 1, "b");
-    gerar_figura(3, c, d, 0.4, 0.7, 0.5, 0.4, "aprox_f_r", "erro", 2, "b");
+    %[a, b, c, d] = ex1b(L, C);
+    %gerar_figura(2, a, b, 0.5, 0.6, 0.5, 0.4, "aprox_r", "erro", 1, "b");
+    %gerar_figura(3, c, d, 0.4, 0.7, 0.5, 0.4, "aprox_f_r", "erro", 2, "b");
     
 %---------------------------Exercicio 2----------------------------------
 
+%  alínea 2.a
+    Tabela_2a = ex2a(R, L, C);
+
+%  alínea 2.b
+    ex2b(R);
 
 
 %---------------------------Exercicio 3----------------------------------
