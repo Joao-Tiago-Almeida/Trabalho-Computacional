@@ -27,12 +27,15 @@ auxC = [10^-4; 10^-4; 10^-5; 0; 0; 0];
 L = d * auxL;
 R = d * auxR;
 C = d * auxC;
+G = 5;
 
 %---------------------------Exercício 1----------------------------------
 
-%   alínea A
-%   ex1a( G, L, R, C );
+%    alínea A
+%    ex1a( G, L, R, C );
 
 %   alínea B
-%   ex1b(L, C);
+%    ex1b(L, C);
 
+%   alínea D
+ex4a(R, G, L, C);

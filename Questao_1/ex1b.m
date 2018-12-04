@@ -1,7 +1,7 @@
 function ex1b(L, C)
 
 %   constante fornecida no enuciado
-r_exato = sqrt((L - C) / C);
+r_exato = 2 * sqrt((L - C) / C);
 
 %   imagem r_exato
 f_r_exato = var(r_exato, L, C);
@@ -16,16 +16,21 @@ f_r_til = var(r_til, L, C);
 erro_f = 100 * abs(f_r_exato - f_r_til) / f_r_exato;
 
 %   erro de r_til, raltivamente a r_exato
-erro_r = 100 * abs(f_r_exato - r_til) / r_exato;
+erro_r = 100 * abs(r_exato - r_til) / r_exato;
 
 %   Desenho do gráfico do erro relativo de r_til e f_r_til
-plot( r_til, erro_r,  r_til, erro_f )
+figure(1)
+plot(f_r_til, erro_f, "red")
+xlabel("aprox_f_r"), ylabel("erro_f");
+figure(2)
+plot( r_til, erro_r, "blue")
+
 
 %   Legendas dos eixos do gráfico
 xlabel("aprox_r"), ylabel("erro");
 
 %   Comentário
-fprintf("À medida que r_til cresce para r_exato ( função azul ) , o erro relativo em %% ( função vermelha ) decresce para 0, pois a distância entre r_til e r_exato tende a anular-se");
+% fprintf("À medida que r_til cresce para r_exato ( função azul ) , o erro relativo em %% ( função vermelha ) decresce para 0, pois a distância entre r_til e r_exato tende a anular-se");
 
 end
 
