@@ -73,8 +73,10 @@ Q = q_eq3(R, L, C, G, t);
  %---------------------------Exercicio 4----------------------------------
    
  %  TODO, por na msm função
- for n = 1:3
- [y, t4] = ex4a(R, G, L, C, n);
-    gerar_figura(11 + n - 1, t4, y, (n-1)*0.33, 0.3, 0.33, 0.4, "legenda_x", "legenda_y", 4, "a");
-    
- end
+for n = 1:3
+    [ya, t4] = ex4a(R, G, L, C, n);
+    gerar_figura(11 + n - 1, t4, ya, (n-1)*0.33, 0.3, 0.33, 0.4, "legenda_x", "legenda_y", 4, "a");
+end
+
+ [yb, t5] = ex4b(R, G, L, C);
+    gerar_figura(15, t5, yb, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
