@@ -1,14 +1,20 @@
 function [Qs, Qt] = ex3b(G, R, L, C, K, t)
 
-    T = (179 + G)/179;
+    T = (79 + G)/179;
     
     
 %   cálculo de q(T)
-    get_q_value(G, R, L, C, T);
+    q = get_q_value(G, R, L, C, T);
     
     Qs = G + regra_de_simpson(K, 0, t);
     Qt = G + regra_dos_trapezios(K, 0, t);
-   
+    
+    
+    Qs_aux = G + regra_de_simpson(K, 0, T);
+    Qt_aux = G + regra_dos_trapezios(K, 0, T);
+    a = Qs_aux - q;
+    b = Qt_aux - q;
+    
     
 
 end

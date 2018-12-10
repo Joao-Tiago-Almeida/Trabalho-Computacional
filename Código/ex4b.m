@@ -1,5 +1,5 @@
-function [y, t] = ex4b(R, G, L, C)
-
+function [y, t] = ex4b(R, G, L, C, I)
+    
 h = 10^-4;
 
 t = 0:h:1;
@@ -23,7 +23,6 @@ while stay == 1
 
     i = i + 1;
 end
-    
     
 end
 

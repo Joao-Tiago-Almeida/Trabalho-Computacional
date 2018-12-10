@@ -1,8 +1,8 @@
-function gerar_figura(num_fig, x, y, dist_x, dist_y, lenght, height, stringx, stringy, num_grafico, alinea )
+function gerar_2_graficos(num_fig, x1, y1, x2, y2, dist_x, dist_y, lenght, height, stringx, stringy, num_grafico, alinea )
 
 %   Desenho do grafico do erro relativo de r_til e f_r_til
 figure(num_fig);
-plot( x, y );
+plot( x1, y1, x2, y2);
 
 %   Defenição da posição da janela no ecrã
 %   set -- (dec) parte esquerda, (dec) parte inferior, (dec) comprimento do ecrã, (dec) altura do ecrã
