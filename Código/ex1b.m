@@ -18,9 +18,6 @@ erro_f = 100 * abs(f_r_exato - f_r_til) / f_r_exato;
 %   erro de r_til, raltivamente a r_exato
 erro_r = 100 * abs(r_exato - r_til) / r_exato;
 
-%   Comentario
-fprintf("1b) Comentário: \n TODO to be done \n\n");
-
 end
 
 function y = var(x, L, C)

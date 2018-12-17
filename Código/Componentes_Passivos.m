@@ -40,7 +40,7 @@ Q = q_eq3(R, L, C, G, t);
     %gerar_grafico(1, t, Q, 0, .6, 0.5, 0.4, "Tempo [s]", "Carga [C]", 1, "a");
 
 %  alínea 1.b
-    %[a, b, c, d] = ex1b(L, C);
+    [a, b, c, d] = ex1b(L, C);
     %gerar_grafico(2, a, b, 0.5, 0.6, 0.5, 0.4, "aprox_r", "erro", 1, "b");
     %gerar_grafico(3, c, d, 0.4, 0.7, 0.5, 0.4, "aprox_f_r", "erro", 2, "b");
     
@@ -66,7 +66,7 @@ Q = q_eq3(R, L, C, G, t);
    [Qs, Qt] = ex3b(G, R, L, C, K, t);
    
  %gerar_grafico (7, t, Qt, 0.2, 0.55, 0.25, 0.25, "Tempo [s]", "Qt(tk)", 3, "b");
- gerar_grafico (8, t, Qs, 0.55, 0.55, 0.25, 0.25, "Tempo [s]", "Qs(tk)", 3, "b");
+ %gerar_grafico (8, t, Qs, 0.55, 0.55, 0.25, 0.25, "Tempo [s]", "Qs(tk)", 3, "b");
  %gerar_grafico (9, t, Qs - Qt, 0.2, 0.25, 0.25, 0.25, "Tempo [s]", "[Qs - Qt](tk)", 3, "b");
  %gerar_grafico (10, t, (abs(Qt - Qs) ./ Qs ) .* 100, 0.1, 0.1, 0.8, 0.8, "Tempo [s]", "[|Qt - Qs|](tk)", 3, "b");
  
@@ -75,13 +75,23 @@ Q = q_eq3(R, L, C, G, t);
  %  TODO, por na msm função
 for n = 1:3
     [ye, t4] = ex4a(R, G, L, C, n);
-%     gerar_2_graficos(11 + n - 1, t4, ye, t, I, (n-1)*0.33, 0.3, 0.33, 0.4, "legenda_x", "legenda_y", 4, "a");
+     %gerar_2_graficos(11 + n - 1, t4, ye, t, I, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "a");
+     if n == 1
+         y1 = ye;
+         t1 = t4;
+     elseif n == 2
+         y2 = ye;
+         t2 = t4;
+     else
+         y3 = ye;
+         t3 = t4;
+     end
     
 end
-gerar_grafico(15, t, I, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
+%gerar_2_graficos(11 + n - 1, t3, y3, t1, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "a");
+
+%gerar_grafico(15, t, I, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
 [yb, t5] = ex4b(R, G, L, C, I);
-%     gerar_grafico(15, t5, yb, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
-
-
-
+     %gerar_grafico(15, t5, yb, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
+     gerar_2_graficos(11 + n - 1, t5, yb, t1, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "a");
 

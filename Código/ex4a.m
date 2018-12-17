@@ -10,18 +10,18 @@ t = 0:h(n):1;
 y = zeros(1, (1/h(n)) + 1);
 
 stay = 1;
-i = 2;
+i = 1;
 
-y(1) = (R * G)/(2 * L);
+y(1) = (-1)*(R * G)/(2 * L);
 while stay == 1
 
+    y(i+1) = y(i) + h(n) * f_Euler( R_italico( y(i), R, G, C), q_eq3( R, L, C, G, t(i) ), L, C );
+
+    i = i + 1;
+    
     if t(i) == 1
         stay = 0;
     end
-
-    y(i) = y(i-1) + h(1) * f_Euler( R_italico( y(i-1), R, G, C), q_eq3( R, L, C, G, t(i-1) ), L, C );
-
-i = i + 1;
 end
     
     
@@ -34,6 +34,6 @@ end
 
 function y = f_Euler(Rif, qf, L, C)
 
-y = -(Rif + qf/C) / L;
+y = - (Rif + (qf/C)) / L;
 
 end
