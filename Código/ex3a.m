@@ -1,8 +1,8 @@
-function [a, b, c, T] = ex3a(Q, t, L, R, C) 
+function [a, b, c, T] = ex3a(Q, t, L, R, C, G) 
 
 %   Derivada da função Q em orem ao tempo (not sure)
-dq = gradient(Q);
-
+%dq = gradient(Q);
+dq = (-1) * G * ( R/(2 * L) * exp(-R/(2 * L) * t) .* cos(t * sqrt(1/(L * C) - (R/(2 * L))^2)) + exp(-R/(2 * L) * t) .* sin(t * sqrt(1/(L * C) - (R/(2 * L))^2)) * sqrt(1/(L * C) - (R/(2 * L))^2));
 
 %   Matriz 2*100
 T = [t; dq];
@@ -53,7 +53,6 @@ a22 = calcula_elemento(M, P, 1, 1, i);
 
 %   indexação na matriz dos coeficientes do sistema
 A = [a11, a12; a21, a22];
-
 %   cálculo de cada elemento da matriz dos termos independentes
 b11 = calcula_elemento(M, P, 2, 0, i);
 b21 = calcula_elemento(M, P, 2, 1, i);
@@ -76,7 +75,7 @@ soma_zero = 0;
 %   Execução do somatório para o cálculo dos elementos da matriz dos 
 %       coeficientes do sistema , no método dos mínimos quadrados
 
-    for i = 0:100
+    for i = 0:2
         if a == 0
             c = phi_0(M, P, (i/100));
         elseif a == 1
@@ -92,7 +91,7 @@ soma_zero = 0;
         end    
         
         soma_zero = soma_zero + (c * d);
-
+        
     end
     
     y = soma_zero;
@@ -100,7 +99,7 @@ end
 
 function y = phi_0(M, P, t)
 %    phi_0
-    y = cos(M * t) * exp(-P * t);    
+    y = cos(M * t) * exp(-P * t); 
 end
 
 function y = phi_1(M, P, t)

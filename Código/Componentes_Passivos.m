@@ -28,6 +28,11 @@ L = d * auxL;
 R = d * auxR;
 C = d * auxC;
 
+ %L=0.320e1;
+ %R=0.352e2;
+ %C=3.6e-4;
+ %G = 50;
+
 %   Divide o intervalo [0,1] em 100 pontos
 t = linspace(0, 1, 101);
 
@@ -42,7 +47,7 @@ Q = q_eq3(R, L, C, G, t);
 %  alínea 1.b
     [a, b, c, d] = ex1b(L, C);
     %gerar_grafico(2, a, b, 0.5, 0.6, 0.5, 0.4, "aprox_r", "erro", 1, "b");
-    gerar_2_graficos(3, a, d, a, b, 0.25, 0.25, .5, 0.5, "r", "(%)erro","f(r)", 1, "b");
+    %gerar_2_graficos(3, a, d, b, 0.25, 0.25, .5, 0.5, "r", "(%)erro","f(r)", 1, "b");
     
     
 %---------------------------Exercicio 2----------------------------------
@@ -57,11 +62,12 @@ Q = q_eq3(R, L, C, G, t);
 %---------------------------Exercicio 3----------------------------------
 
 %  alínea 3.a
-   [K, J, I, T] = ex3a(Q, t, L, R, C);
+   [K, J, I, T] = ex3a(Q, t, L, R, C, G);
    
 %gerar_tabela(T, 4, 0, 0.4, 1, .18);
 %gerar_grafico(5, t, J, 0, 0, 0.5, 0.4, "Tempo [s]", "J(t)", 3, "a");
 %gerar_grafico(6, t, J-I, 0.5, 0, 0.5, 0.4, "Tempo [s]", "J(t) - i(t)", 3, "a");
+gerar_2_graficos(99, t, J-I, J, 0.25, 0.25, .5, 0.5, "Tempo [s]",  "J(t) - i(t)", "J(t)", 3, "a");
    
 %  alínea 3.b
    [Qs, Qt] = ex3b(G, R, L, C, K, t);
@@ -76,7 +82,7 @@ Q = q_eq3(R, L, C, G, t);
  %  TODO, por na msm função
 for n = 1:3
     [ye, t4] = ex4a(R, G, L, C, n);
-     %gerar_2_graficos(11 + n - 1, t4, ye, t, I, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "legenda_y2", 4, "a");
+     %gerar_2_graficos(11 + n - 1, t4, ye, I, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "legenda_y2", 4, "a");
      if n == 1
          y1 = ye;
          t1 = t4;
@@ -89,10 +95,10 @@ for n = 1:3
      end
     
 end
-%gerar_2_graficos(11 + n - 1, t3, y3, t1, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", 4, "a");
+%gerar_2_graficos(11 + n - 1, t3, y3, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", 4, "a");
 
 %gerar_grafico(15, t, I, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
 [yb, t5] = ex4b(R, G, L, C, I);
      %gerar_grafico(15, t5, yb, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
-     %gerar_2_graficos(11 + n - 1, t5, yb, t1, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", 4, "a");
+     %gerar_2_graficos(11 + n - 1, t5, yb, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", 4, "a");
 
