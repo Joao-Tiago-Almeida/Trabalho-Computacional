@@ -7,16 +7,19 @@ r_exato = 2 * sqrt((L - C) / C);
 f_r_exato = var(r_exato, L, C);
 
 %   valor de aproxiamacao a r_exato, no intervalo defenido
-r_til = linspace(r_exato - 10, r_exato - 1, 100);
+r_til = linspace(r_exato - 10, r_exato - 1, 101);
 
 %   imagem de r_til
 f_r_til = var(r_til, L, C);
 
+%   erro de r_til, raltivamente a r_exato
+erro_r = 100 * abs(r_exato - r_til) / r_exato;
+
 %   erro de f_r_til, relativamente a f_r_exato
 erro_f = 100 * abs(f_r_exato - f_r_til) / f_r_exato;
 
-%   erro de r_til, raltivamente a r_exato
-erro_r = 100 * abs(r_exato - r_til) / r_exato;
+%erro_f = 100 * abs((( r_exato .* gradient(f_r_til) .* erro_r) ./ f_r_exato));
+
 
 end
 

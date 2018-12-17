@@ -67,6 +67,7 @@ B = [b11; b21];
 %   <=> x = A^-1 . B
 y = A\B;
 
+
 end
 
 function  y = calcula_elemento(M, P, a, b, dq)

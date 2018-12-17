@@ -20,7 +20,7 @@ d = s;
 %   matrizes auxiliares para calculos defenidos no enunciado
 auxL = [1; 0; 0; 0; 10^-1; 10^-2];
 auxR = [10; 0; 0; 1; 10^-1; 0];
-auxC = [10^-4; 10^-4; 10^-5; 0; 0; 0];
+auxC = [10^-4; 10^-5; 10^-6; 0; 0; 0];
 
 %   valores correspondes aos componentes passivos do circuito,
 %   para o respetivo grupo
@@ -42,7 +42,8 @@ Q = q_eq3(R, L, C, G, t);
 %  alínea 1.b
     [a, b, c, d] = ex1b(L, C);
     %gerar_grafico(2, a, b, 0.5, 0.6, 0.5, 0.4, "aprox_r", "erro", 1, "b");
-    %gerar_grafico(3, c, d, 0.4, 0.7, 0.5, 0.4, "aprox_f_r", "erro", 2, "b");
+    gerar_2_graficos(3, a, d, a, b, 0.25, 0.25, .5, 0.5, "r", "(%)erro","f(r)", 1, "b");
+    
     
 %---------------------------Exercicio 2----------------------------------
 
@@ -75,7 +76,7 @@ Q = q_eq3(R, L, C, G, t);
  %  TODO, por na msm função
 for n = 1:3
     [ye, t4] = ex4a(R, G, L, C, n);
-     %gerar_2_graficos(11 + n - 1, t4, ye, t, I, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "a");
+     %gerar_2_graficos(11 + n - 1, t4, ye, t, I, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "legenda_y2", 4, "a");
      if n == 1
          y1 = ye;
          t1 = t4;
@@ -88,10 +89,10 @@ for n = 1:3
      end
     
 end
-%gerar_2_graficos(11 + n - 1, t3, y3, t1, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "a");
+%gerar_2_graficos(11 + n - 1, t3, y3, t1, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", 4, "a");
 
 %gerar_grafico(15, t, I, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
 [yb, t5] = ex4b(R, G, L, C, I);
      %gerar_grafico(15, t5, yb, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "b");
-     gerar_2_graficos(11 + n - 1, t5, yb, t1, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", 4, "a");
+     %gerar_2_graficos(11 + n - 1, t5, yb, t1, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", 4, "a");
 
