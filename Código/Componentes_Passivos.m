@@ -97,8 +97,8 @@ for n = 1:3
 end
 %gerar_2_graficos(11 + n - 1, t3, y3, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", "a");
 %gerar_grafico(15, t, I, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
-[yb, t5] = ex4b(R, G, L, C, I);
-     %gerar_grafico(15, t5, yb, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
-     %gerar_2_graficos(11 + n - 1, t5, yb, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", "a");
+[yrk, t5] = ex4b(R, G, L, C, I, ye);
+     %gerar_grafico(15, t5, yrk, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
+     %gerar_2_graficos(11 + n - 1, t5, yrk, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", "a");
     
   

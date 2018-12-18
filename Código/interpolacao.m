@@ -3,7 +3,7 @@ function y = interpolacao(X, Y, ponto, num_pontos )
     %vetor auxliar dos A's, dimensão num_pontos - 1;
     A = zeros(1, num_pontos - 1);
     for n = 2:num_pontos
-        A(n -1) = calcula_A(X, Y, n, 0)
+        A(n -1) = calcula_A(X, Y, n, 0);
     end
     
         %cálculo do polinómio

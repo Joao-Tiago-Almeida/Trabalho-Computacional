@@ -2,7 +2,6 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
 
     T = (79 + G)/179;
     
-    
 %   cálculo de q(T)
     q = get_q_value(G, R, L, C, T);
     
@@ -13,16 +12,28 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
     Qs_aux = G + regra_de_simpson(K, 0, T);
     Qt_aux = G + regra_dos_trapezios(K, 0, T);
     
-    X = [.45, .56, 47, 48];
+    %Cálculo da interpolação
+    
+    
+    M = str2double(sprintf('%.0f', T * 100));
+    T = M/100;
+    
+    
+    X = zeros(1, 4);
+    for n = 1:4
+        X(n) = T + (n-1)/100;
+    end
     Ys = zeros(1, 4);
     Yt = zeros(1, 4);
     for n = 1:4
-        Ys(n) = regra_de_simpson(K, 0, n/100 + 0.45);
-        Yt(n) = regra_dos_trapezios(K, 0, n/100 + 0.45);
+        Ys(n) = Qs(n + M - 1);
+        Yt(n) = Qt(n + M - 1);
     end
+   
     
-    Ts = interpolacao(X, Ys, T, 4)
-    Tt = interpolacao(X, Yt, T, 4)
+    
+    %Ts = interpolacao(X, Ys, T, 4);
+    %Tt = interpolacao(X, Yt, T, 4);
     
     
 
