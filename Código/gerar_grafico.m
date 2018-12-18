@@ -1,4 +1,4 @@
-function gerar_grafico(num_fig, x, y, dist_x, dist_y, lenght, height, stringx, stringy, num_grafico, alinea )
+function gerar_grafico(num_fig, x, y, dist_x, dist_y, lenght, height, stringx, stringy, titulo )
 
 %   Desenho do grafico do erro relativo de r_til e f_r_til
 figure(num_fig);
@@ -16,7 +16,7 @@ ax = gca;
 ax.FontSize = 16;
 
 %   Título do gráfico
-str = sprintf('Gráfico %d  alínea %d%c)', num_grafico, num_grafico, alinea );
+str = sprintf('%s', titulo );
 title(str);
 
 end

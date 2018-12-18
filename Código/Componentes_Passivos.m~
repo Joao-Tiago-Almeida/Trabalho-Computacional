@@ -100,5 +100,16 @@ end
 [yb, t5] = ex4b(R, G, L, C, I);
      %gerar_grafico(15, t5, yb, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
      %gerar_2_graficos(11 + n - 1, t5, yb, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", "a");
+     
+     
+     %T = interpolacao(I, 33, 4);
+     
+   int = zeros(1, 101);
+   for n = 1: 101
+       int(n) = I(n);
+        if n > 5 && n < 95
+            int(n) = interpolacao(I, n, 4);
+        end
+   end
     
-  
+   gerar_2_graficos(5, t , I , int, 0.0, 0.25, .5, 0.5, "Tempo [s]",  "i(t) [A]", "J(t) [A]", "a");
