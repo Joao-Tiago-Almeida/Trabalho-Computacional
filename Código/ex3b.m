@@ -8,9 +8,14 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
     Qs = G + regra_de_simpson(K, 0, t);
     Qt = G + regra_dos_trapezios(K, 0, t);
     
+    for n=2:101
+            Qs(n) = Qs(n) + Qs(n-1);
+            Qt(n) = Qt(n) + Qt(n-1);
+    end
     
-    Qs_aux = G + regra_de_simpson(K, 0, T);
-    Qt_aux = G + regra_dos_trapezios(K, 0, T);
+    
+    %Qs_aux = G + regra_de_simpson(K, 0, T);
+    %Qt_aux = G + regra_dos_trapezios(K, 0, T);
     
     %Cálculo da interpolação
     
@@ -25,19 +30,17 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
     end
     Ys = zeros(1, 4);
     Yt = zeros(1, 4);
+
+    
     for n = 1:4
         Ys(n) = Qs(n + M - 1);
         Yt(n) = Qt(n + M - 1);
     end
-   
-    for n=2:101
-            Qs(n) = Qs(n) + Qs(n-1);
-            Qt(n) = Qt(n) + Qt(n-1);
-    end
+  
     
     
-    Ts = interpolacao(X, Ys, T, 4);
-    Tt = interpolacao(X, Yt, T, 4);
+    Ts = interpolacao(X, Ys, T, 4)
+    Tt = interpolacao(X, Yt, T, 4)
     
     
 
