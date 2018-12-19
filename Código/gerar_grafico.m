@@ -2,7 +2,7 @@ function gerar_grafico(num_fig, x, y, dist_x, dist_y, lenght, height, stringx, s
 
 %   Desenho do grafico do erro relativo de r_til e f_r_til
 figure(num_fig);
-plot( x, y , ':');
+plot( x, y , '.');
 
 %   Defenição da posição da janela no ecrã
 %   set -- (dec) parte esquerda, (dec) parte inferior, (dec) comprimento do ecrã, (dec) altura do ecrã

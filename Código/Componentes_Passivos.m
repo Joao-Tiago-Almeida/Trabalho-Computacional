@@ -62,7 +62,7 @@ Q = q_eq3(R, L, C, G, t);
 %---------------------------Exercicio 3----------------------------------
 
 %  alínea 3.a
-   [K, J, I, Tab] = ex3a(Q, t, L, R, C, G);
+   [K, J, I, Tab] = ex3a(t, L, R, C, G);
    
 %gerar_tabela(Tab, 4, 0, 0.4, 1, .18);
 
@@ -82,7 +82,12 @@ Q = q_eq3(R, L, C, G, t);
  %  TODO, por na msm função
 for n = 1:3
     [ye, t4] = ex4a(R, G, L, C, n);
-     %gerar_2_graficos(11 + n - 1, t4, ye, I, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "legenda_y2", "a");
+    t_aux = linspace(0, 1, 10*(10^n) +1);
+    intensidade = derivada_dq(t_aux, L, R, C, G);
+    whos intensidade
+    whos ye
+    whos t4
+     gerar_2_graficos(11 + n - 1, t4, ye, intensidade, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "legenda_y2", "a");
      if n == 1
          y1 = ye;
          t1 = t4;

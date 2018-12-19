@@ -62,12 +62,12 @@ Q = q_eq3(R, L, C, G, t);
 %---------------------------Exercicio 3----------------------------------
 
 %  alínea 3.a
-   [K, J, I, Tab] = ex3a(Q, t, L, R, C, G);
+   [K, J, I, Tab] = ex3a(t, L, R, C, G);
    
 %gerar_tabela(Tab, 4, 0, 0.4, 1, .18);
 
 %gerar_2_graficos(5, t , I , J, 0.0, 0.25, .5, 0.5, "Tempo [s]",  "i(t) [A]", "J(t) [A]", "a");
-%gerar_2_graficos(6, t, J-I, J, 0.5, 0.25, .5, 0.5, "Tempo [s]",  "J(t) - i(t) [A]", "J(t) [A]", "a");
+gerar_2_graficos(6, t, J-I, J, 0.5, 0.25, .5, 0.5, "Tempo [s]",  "J(t) - i(t) [A]", "J(t) [A]", "a");
    
 %  alínea 3.b
    [Qs, Qt] = ex3b(G, R, L, C, K, t);
@@ -79,10 +79,12 @@ Q = q_eq3(R, L, C, G, t);
  
  %---------------------------Exercicio 4----------------------------------
    
+
  %  TODO, por na msm função
 for n = 1:3
     [ye, t4] = ex4a(R, G, L, C, n);
-     %gerar_2_graficos(11 + n - 1, t4, ye, I, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "legenda_y2", "a");
+    intensidade = t = linspace(0, 1, (10^n));
+     %gerar_grafico(11 + n - 1, t4, ye, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y2", "a");
      if n == 1
          y1 = ye;
          t1 = t4;
@@ -97,19 +99,9 @@ for n = 1:3
 end
 %gerar_2_graficos(11 + n - 1, t3, y3, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", "a");
 %gerar_grafico(15, t, I, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
-[yb, t5] = ex4b(R, G, L, C, I);
-     %gerar_grafico(15, t5, yb, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
-     %gerar_2_graficos(11 + n - 1, t5, yb, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", "a");
+[yrk, t5] = ex4b(R, G, L, C, I, ye);
+     %gerar_grafico(15, t5, yrk, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
      
-     
-     %T = interpolacao(I, 33, 4);
-     
-   int = zeros(1, 101);
-   for n = 1: 101
-       int(n) = I(n);
-        if n > 5 && n < 95
-            int(n) = interpolacao(I, n, 4);
-        end
-   end
+     %gerar_2_graficos(11 + n - 1, t5, yrk, y3, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", "a");
     
-   gerar_2_graficos(5, t , I , int, 0.0, 0.25, .5, 0.5, "Tempo [s]",  "i(t) [A]", "J(t) [A]", "a");
+  

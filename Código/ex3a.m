@@ -1,8 +1,7 @@
-function [a, b, c, T] = ex3a(Q, t, L, R, C, G) 
+function [a, b, c, T] = ex3a(t, L, R, C, G) 
 
-%   Derivada da função Q em orem ao tempo (not sure)
-%dq = gradient(Q);
-dq = (-1) * G * ( R/(2 * L) * exp(-R/(2 * L) * t) .* cos(t * sqrt(1/(L * C) - (R/(2 * L))^2)) + exp(-R/(2 * L) * t) .* sin(t * sqrt(1/(L * C) - (R/(2 * L))^2)) * sqrt(1/(L * C) - (R/(2 * L))^2));
+
+dq = derivada_dq(t, L, R, C, G);
 
 %   Matriz 2*100
 T = [t; dq];
