@@ -6,11 +6,11 @@ figure(num_fig);
 xlabel(stringx);
 
 yyaxis left
-plot(x, y1);
+plot(x, y1, '-');
 ylabel(stringy);
 
 yyaxis right
-plot( x, y2);
+plot( x, y2, '-');
 ylabel(stringy2);
 
 %   Defenição da posição da janela no ecrã
@@ -24,7 +24,7 @@ ax = gca;
 ax.FontSize = 16;
 
 %   Título do gráfico
-str = sprintf('%s', titulo );
+str = sprintf('%s', titulo);
 title(str);
 
 end

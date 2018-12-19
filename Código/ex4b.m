@@ -47,7 +47,7 @@ function [yrk, t] = ex4b(R, G, L, C, I, ye)
     
     %Ti = interpolacao(X, Yi, T, 4);
     %Tye = interpolacao(X, Yye, T, 4);
-    Trk = interpolacao(X, Yrk, T, 4)
+    %Trk = interpolacao(X, Yrk, T, 4);
 end
 
 function y = R_italico(x, R, G, C)

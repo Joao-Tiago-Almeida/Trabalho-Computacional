@@ -30,10 +30,14 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
         Yt(n) = Qt(n + M - 1);
     end
    
+    for n=2:101
+            Qs(n) = Qs(n) + Qs(n-1);
+            Qt(n) = Qt(n) + Qt(n-1);
+    end
     
     
-    %Ts = interpolacao(X, Ys, T, 4);
-    %Tt = interpolacao(X, Yt, T, 4);
+    Ts = interpolacao(X, Ys, T, 4);
+    Tt = interpolacao(X, Yt, T, 4);
     
     
 
