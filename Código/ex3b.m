@@ -5,17 +5,26 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
 %   cálculo de q(T)
     q = get_q_value(G, R, L, C, T);
     
-    Qs = G + regra_de_simpson(K, 0, t);
-    Qt = G + regra_dos_trapezios(K, 0, t);
+    %declaração dos vetores
+    Qs = zeros(1, 100);
+    Qt = zeros(1, 100);
     
+    %cálculo do integral entre cada dois pontos
+    for i=2:101
+        Qs(i) = regra_de_simpson(K, t(i-1), t(i));
+        Qt(i) = regra_dos_trapezios(K, t(i-1), t(i));
+    end
+    
+    %som acumulativa do integral
     for n=2:101
             Qs(n) = Qs(n) + Qs(n-1);
             Qt(n) = Qt(n) + Qt(n-1);
     end
     
+    %soma do número do grupo 
+    Qs = G + Qs;
+    Qt = G + Qt;
     
-    %Qs_aux = G + regra_de_simpson(K, 0, T);
-    %Qt_aux = G + regra_dos_trapezios(K, 0, T);
     
     %Cálculo da interpolação
     
