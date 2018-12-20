@@ -48,8 +48,8 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
   
     
     
-    Ts = interpolacao(X, Ys, T, 4)
-    Tt = interpolacao(X, Yt, T, 4)
+    Ts = interpolacao(X, Ys, T, 4);
+    Tt = interpolacao(X, Yt, T, 4);
     
     
 

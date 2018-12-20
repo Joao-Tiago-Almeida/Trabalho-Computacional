@@ -7,7 +7,7 @@ function [yrk, t] = ex4b(R, G, L, C, I, ye)
     yrk = zeros(1, 1/h);
 
     stay = 1;
-    i = 2;
+    i = 1;
 
     yrk(1) = -(R * G)/(2 * L);
 
@@ -16,11 +16,8 @@ function [yrk, t] = ex4b(R, G, L, C, I, ye)
         if t(i) == 1
             stay = 0;
         end
-
-        xn = q_eq3( R, L, C, G, t(i-1) );
-        yn = R_italico( yrk(i-1), R, G, C);
-
-        yrk(i) = yrk(i-1) + h* f_Runge_Kutta_pm2( yn + (h/2), xn + (h/2)* f_Runge_Kutta_pm2(yn, xn, L, C ), L, C);
+        
+        yrk(i+1) = yrk(i) + h* f_Runge_Kutta_pm2( i + (h/2), yrk(i) + (h/2)* f_Runge_Kutta_pm2(i, yrk(i), L, C, G, R), L, C, G, R);
 
         i = i + 1;
     end
@@ -45,9 +42,10 @@ function [yrk, t] = ex4b(R, G, L, C, I, ye)
         Yrk(n) = yrk(n + M - 1);
     end
     
-    %Ti = interpolacao(X, Yi, T, 4);
-    %Tye = interpolacao(X, Yye, T, 4);
-    %Trk = interpolacao(X, Yrk, T, 4);
+    Ti = interpolacao(X, Yi, T, 4)
+    Tye = interpolacao(X, Yye, T, 4)
+    Trk = interpolacao(X, Yrk, T, 4)
+    
 end
 
 function y = R_italico(x, R, G, C)
@@ -55,8 +53,8 @@ function y = R_italico(x, R, G, C)
 y = R*x + G*C*sin(x);
 end
 
-function y = f_Runge_Kutta_pm2(Rif, qf, L, C)
+function y = f_Runge_Kutta_pm2(t, y, L, C, G, R)
 
-y = -(Rif + qf/C) / L;
+y = -(R_italico( y, R, G, C) + q_eq3( R, L, C, G, t )/C ) / L;
 
 end
