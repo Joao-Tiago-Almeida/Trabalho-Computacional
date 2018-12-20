@@ -4,7 +4,7 @@ function [yrk] = ex4b(R, G, L, C, I, ye)
 
     t = zeros(1, 1/h + 1);
 
-    yrk = zeros(1, 1/h);
+    yrk = zeros(1, 1/h + 1 );
 
     stay = 1;
     i = 1;
@@ -12,45 +12,48 @@ function [yrk] = ex4b(R, G, L, C, I, ye)
     yrk(1) = -(R * G)/(2 * L);
     t(1) = 0;
 
-    while stay == 1
+    while stay
 
         if i > 1
-            t(i) =  t(1) + h * i;
+            t(i) =  t(1) + h * (i-1);
+        end
+        
+        if t(i) == 1
+            break
         end
         
         yrk(i+1) = yrk(i) + h * f_Runge_Kutta_pm2( t(i) + (h/2), yrk(i) + (h/2)* f_Runge_Kutta_pm2(t(i), yrk(i), L, C, G, R), L, C, G, R);
         
-        if t(i) == 1
-            stay = 0;
-        end
         
         i = i + 1;
     end
     
+    whos yrk
+    
     %Cálculo da interpolação
     
     T = (27 + G)/127;
-    M = str2double(sprintf('%.0f', T * 100));
-    O = M/100;
+    M = str2double(sprintf('%.0f', T * h^-1));
+    O = M/h^-1;
     
     
     X = zeros(1, 4);
     for n = 1:4
         X(n) = O + (n-1)/100;
     end
-    Yi = zeros(1, 4);
-    Yye = zeros(1, 4);
-    Yrk = zeros(1, 4);
+    Yi_aux = zeros(1, 4);
+    Yye_aux = zeros(1, 4);
+    Yrk_aux = zeros(1, 4);
     for n = 1:4
-        Yi(n) = I(n + M - 1);
-        Yye(n) = ye(n + M - 1);
-        Yrk(n) = yrk(n + M - 1);
+        Yi_aux(n) = I(str2double(sprintf('%.0f', T * 100)));
+        Yye_aux(n) = ye(n + M - 1);
+        Yrk_aux(n) = yrk(n + M - 1);
     end
     
     
-    Ti = interpolacao(X, Yi, T, 4)
-    Tye = interpolacao(X, Yye, T, 4)
-    Trk = interpolacao(X, Yrk, T, 4)
+    Ti = interpolacao(X, Yi_aux, T, 4)
+    Tye = interpolacao(X, Yye_aux, T, 4)
+    Trk = interpolacao(X, Yrk_aux, T, 4)
     
 end
 

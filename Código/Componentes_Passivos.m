@@ -90,14 +90,14 @@ Q = q_eq3(R, L, C, G, t);
     [ye, t4] = ex4a(R, G, L, C, n);
     t_aux = linspace(0, 1, 10*(10^n) +1);
     intensidade = derivada_dq(t_aux, L, R, C, G);
-    %gerar_2_graficos(11 + n - 1, t4, ye, intensidade, 0.2, 0.2, 0.6, 0.6, "Tempo [s]", "Intensidade Calculada [A]", "Intensidade dado no enucidao [A]", "4.a) Cálculo da Intensidade pelo método de Euler com h = 10^-^4");    
-    %gerar_grafico(16 + n, t4, ye - intensidade, 0.2, 0.2, 0.6, 0.6, "Tempo [s]", "Intensidade [A]", "4.a) Diferença entre a Intensidade Calculada e a dada no Enunciado com  h = 10^-^4 ");
+    %gerar_2_graficos(11 + n - 1, t4, ye, intensidade, 0.2, 0.2, 0.6, 0.6, "Tempo [s]", "Intensidade Calculada [A]", "Intensidade dado no enucidao [A]", "4.a) Cálculo da Intensidade pelo método de Euler com h = 10^-^4");
+    gerar_grafico(16 + n, t4, ye - intensidade, 0.2, 0.2, 0.6, 0.6, "Tempo [s]", "Intensidade [A]", "4.a) Diferença entre a Intensidade Calculada e a dada no Enunciado com  h = 10^-^4 ");
     
 %gerar_2_graficos(11 + n - 1, t3, y3, y1, (n-1)*0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y","legenda_y", "a");
 %gerar_grafico(15, t, I, 0.2, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
 [yrk] = ex4b(R, G, L, C, I, ye);
-     gerar_grafico(45, t4, yrk, 0, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
-     gerar_2_graficos(15, t4, yrk, intensidade, (n-1)*0.2, 0.2, 0.6, 0.6, "Tempo [s]", "Intensidade Calculada [A]","Intensidade dado no enucidao [A]", "4.b) Cálculo da Intensidade pelo método de Runge-Kutta com h = 10^-^4");
-     gerar_grafico(19, t4, yrk - intensidade, 0.2, 0.2, 0.6, 0.6, "Tempo [s]", "Intensidade [A]", "4.b) Diferença entre a Intensidade Calculada e a dada no Enunciado com  h = 10^-^4 ");
+     %gerar_grafico(45, t4, yrk, 0, 0.2, 0.6, 0.6, "legenda_x", "legenda_y", "b");
+     %gerar_2_graficos(15, t4, yrk, intensidade, (n-1)*0.2, 0.2, 0.6, 0.6, "Tempo [s]", "Intensidade Calculada [A]","Intensidade dado no enucidao [A]", "4.b) Cálculo da Intensidade pelo método de Runge-Kutta com h = 10^-^4");
+     %gerar_grafico(67, t4, yrk - intensidade, 0.2, 0.2, 0.6, 0.8, "Tempo [s]", "Intensidade [A]", "4.b) Diferença entre a Intensidade Calculada e a dada no Enunciado com  h = 10^-^4 ");
      
      

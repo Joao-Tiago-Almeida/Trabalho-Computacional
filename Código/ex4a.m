@@ -5,7 +5,7 @@ function [y, t] = ex4a(R, G, L, C, n)
 
 h = [10^-2; 10^-3; 10^-4];
 
-t = 0:h(n):1;
+t = zeros(1, 1/h(n) + 1);
 
 y = zeros(1, (1/h(n)) + 1);
 
@@ -13,17 +13,19 @@ stay = 1;
 i = 1;
 
 y(1) = (-1)*(R * G)/(2 * L);
-while stay == 1
-    
+while stay
+
     if i > 1
-            t(i) =  t(1) + h(n) * i;
+            t(i) = h(n) * (i-1);
     end
+    
+    if t(i) == 1
+        break
+    end
+    
 
     y(i+1) = y(i) + h(n) * f_Euler( R_italico( y(i), R, G, C), q_eq3( R, L, C, G, t(i) ), L, C );   
     
-    if t(i) == 1
-        stay = 0;
-    end
     
     i = i + 1;
     

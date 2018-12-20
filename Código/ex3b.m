@@ -30,12 +30,12 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
     
     
     M = str2double(sprintf('%.0f', T * 100));
-    T = M/100;
+    O = M/100;
     
     
     X = zeros(1, 4);
     for n = 1:4
-        X(n) = T + (n-1)/100;
+        X(n) = O + (n-1)/100;
     end
     Ys = zeros(1, 4);
     Yt = zeros(1, 4);
@@ -48,8 +48,8 @@ function [Qs, Qt] = ex3b(G, R, L, C, K, t)
   
     
     
-    Ts = interpolacao(X, Ys, T, 4)
-    Tt = interpolacao(X, Yt, T, 4)
+    Ts = interpolacao(X, Ys, T, 4);
+    Tt = interpolacao(X, Yt, T, 4);
     
     
 
