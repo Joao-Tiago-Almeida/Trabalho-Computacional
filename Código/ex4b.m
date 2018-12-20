@@ -28,8 +28,6 @@ function [yrk] = ex4b(R, G, L, C, I, ye)
         i = i + 1;
     end
     
-    whos yrk
-    
     %Cálculo da interpolação
     
     T = (27 + G)/127;
@@ -51,9 +49,9 @@ function [yrk] = ex4b(R, G, L, C, I, ye)
     end
     
     
-    Ti = interpolacao(X, Yi_aux, T, 4)
-    Tye = interpolacao(X, Yye_aux, T, 4)
-    Trk = interpolacao(X, Yrk_aux, T, 4)
+    Ti = interpolacao(X, Yi_aux, T, 4);
+    Tye = interpolacao(X, Yye_aux, T, 4);
+    Trk = interpolacao(X, Yrk_aux, T, 4);
     
 end
 

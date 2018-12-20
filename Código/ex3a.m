@@ -7,6 +7,8 @@ dq = derivada_dq(t, L, R, C, G);
 T = [t; dq];
 
 %   Arredondamento de M às unidades
+
+
 temp = var(R, L, C);
 M = str2double(sprintf('%.0f', temp));
 
@@ -74,7 +76,7 @@ soma_zero = 0;
 %   Execução do somatório para o cálculo dos elementos da matriz dos 
 %       coeficientes do sistema , no método dos mínimos quadrados
 
-    for i = 0:2
+    for i = 0:100
         if a == 0
             c = phi_0(M, P, (i/100));
         elseif a == 1
