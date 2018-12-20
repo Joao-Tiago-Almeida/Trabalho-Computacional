@@ -1,26 +1,32 @@
-function [yrk, t] = ex4b(R, G, L, C, I, ye)
+function [yrk] = ex4b(R, G, L, C, I, ye)
     
-    h = 10^(-4);
+    h = 10^-4;
 
-    t = 0:h:1;
-    N = (1/10^(-4));
-    yrk = zeros(1, 1/h);
+    t = zeros(1, 1/h + 1);
+
+    yrk = zeros(1, 1/h + 1 );
 
     stay = 1;
     i = 1;
-    t = [0:h:1];
-    yrk(1) = -(R * G)/(2 * L);
 
-    for i = 1:N
-        k1 = f_Runge_Kutta_pm2((i)*h, yrk(i), L, C, G, R);
-        tNew = t(i) + h/2;
-        yNew = yrk(i) + h*k1/2;
-        yrk(i+1) = yrk(i) + h * f_Runge_Kutta_pm2(tNew,yNew, L, C, G, R);
-     
+    yrk(1) = -(R * G)/(2 * L);
+    t(1) = 0;
+
+    while stay
+
+        if i > 1
+            t(i) = t(i) + h;
+
+        end
+        
         if t(i) == 1
             break
         end
-        %i = i + 1;
+        
+        yrk(i+1) = yrk(i) + h * f_Runge_Kutta_pm2( t(i) + (h/2), yrk(i) + (h/2)* f_Runge_Kutta_pm2(t(i), yrk(i), L, C, G, R), L, C, G, R);
+        
+        
+        i = i + 1;
     end
     
     %Cálculo da interpolação
@@ -44,13 +50,14 @@ function [yrk, t] = ex4b(R, G, L, C, I, ye)
     end
     
     
-    Ti = interpolacao(X, Yi_aux, T, 4)
-    Tye = interpolacao(X, Yye_aux, T, 4)
-    Trk = interpolacao(X, Yrk_aux, T, 4)
+    Ti = interpolacao(X, Yi_aux, T, 4);
+    Tye = interpolacao(X, Yye_aux, T, 4);
+    Trk = interpolacao(X, Yrk_aux, T, 4);
     
 end
 
 function y = R_italico(x, R, G, C)
+
 y = R*x + G*C*sin(x);
 end
 
