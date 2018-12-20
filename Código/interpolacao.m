@@ -1,5 +1,8 @@
 function y = interpolacao(X, Y, ponto, num_pontos )
-        
+
+    %Y - vetor de imagens
+    %X - vetor dos x's
+
     %vetor auxliar dos A's, dimensão num_pontos - 1;
     A = zeros(1, num_pontos - 1);
     for n = 2:num_pontos
@@ -12,9 +15,13 @@ function y = interpolacao(X, Y, ponto, num_pontos )
     ordem = num_pontos -1;
     while ( ordem ~= 0)
         temp = 1;
+        
+        %cálculo do valor de (x-xi)
        for n = 1:ordem 
           temp  = temp*(ponto - X(n));
        end
+       
+       %cálculo do polinómio 
        if ordem == num_pontos -1
            
             soma = A(ordem) * temp;
@@ -40,16 +47,21 @@ function  A = calcula_A(X, vetor, tamanho, soma_total)
         aux2 = zeros(1, tamanho - 1);
         aux11 = zeros(1, tamanho - 1);
         aux22 = zeros(1, tamanho - 1);
+        %divide o a diferença dividida em dus diferencas de menor tamanho
+        %em 1 unidade 
        for n = 1:tamanho - 1
+           %divisão dos vetores
            aux1(n) = vetor(n);
            aux2(n) = vetor(n+1);
            aux11(n) = X(n);
            aux22(n) = X(n+1);
            temp1 = calcula_A(aux11, aux1, tamanho-1, soma_total);
            temp2 = calcula_A(aux22, aux2, tamanho-1, soma_total);
+           %Soma total da divisa inicial
            A = soma_total + (temp2 - temp1)/(X(tamanho) - X(1));
        end
     else
+        %soma da divisa, quando apenas tem dois pontos
         A = (vetor(2) - vetor(1))/(X(2) - X(1));
     end
  end

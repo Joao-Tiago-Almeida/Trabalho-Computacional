@@ -1,8 +1,8 @@
-function [yrk, t] = ex4b(R, G, L, C, I, ye)
+function [yrk] = ex4b(R, G, L, C, I, ye)
     
     h = 10^-4;
 
-    t = 0:h:1;
+    t = zeros(1, 1/h + 1);
 
     yrk = zeros(1, 1/h);
 
@@ -10,15 +10,20 @@ function [yrk, t] = ex4b(R, G, L, C, I, ye)
     i = 1;
 
     yrk(1) = -(R * G)/(2 * L);
+    t(1) = 0;
 
     while stay == 1
 
+        if i > 1
+            t(i) =  t(1) + h * i;
+        end
+        
+        yrk(i+1) = yrk(i) + h * f_Runge_Kutta_pm2( t(i) + (h/2), yrk(i) + (h/2)* f_Runge_Kutta_pm2(t(i), yrk(i), L, C, G, R), L, C, G, R);
+        
         if t(i) == 1
             stay = 0;
         end
         
-        yrk(i+1) = yrk(i) + h* f_Runge_Kutta_pm2( i + (h/2), yrk(i) + (h/2)* f_Runge_Kutta_pm2(i, yrk(i), L, C, G, R), L, C, G, R);
-
         i = i + 1;
     end
     
@@ -26,12 +31,12 @@ function [yrk, t] = ex4b(R, G, L, C, I, ye)
     
     T = (27 + G)/127;
     M = str2double(sprintf('%.0f', T * 100));
-    T = M/100;
+    O = M/100;
     
     
     X = zeros(1, 4);
     for n = 1:4
-        X(n) = T + (n-1)/100;
+        X(n) = O + (n-1)/100;
     end
     Yi = zeros(1, 4);
     Yye = zeros(1, 4);
@@ -41,6 +46,7 @@ function [yrk, t] = ex4b(R, G, L, C, I, ye)
         Yye(n) = ye(n + M - 1);
         Yrk(n) = yrk(n + M - 1);
     end
+    
     
     Ti = interpolacao(X, Yi, T, 4)
     Tye = interpolacao(X, Yye, T, 4)

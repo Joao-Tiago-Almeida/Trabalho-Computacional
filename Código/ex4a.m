@@ -14,14 +14,19 @@ i = 1;
 
 y(1) = (-1)*(R * G)/(2 * L);
 while stay == 1
+    
+    if i > 1
+            t(i) =  t(1) + h(n) * i;
+    end
 
-    y(i+1) = y(i) + h(n) * f_Euler( R_italico( y(i), R, G, C), q_eq3( R, L, C, G, t(i) ), L, C );
-
-    i = i + 1;
+    y(i+1) = y(i) + h(n) * f_Euler( R_italico( y(i), R, G, C), q_eq3( R, L, C, G, t(i) ), L, C );   
     
     if t(i) == 1
         stay = 0;
     end
+    
+    i = i + 1;
+    
 end
     
     
